@@ -1,18 +1,22 @@
 {
-  "name": "firebase-todo",
-  "version": "0.0.0",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview --port 4173"
-  },
-  "dependencies": {
-    "bulma": "^0.9.4",
-    "firebase": "^9.9.3",
-    "vue": "^3.2.37"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-vue": "^3.0.1",
-    "vite": "^3.0.4"
-  }
+    "homepage": "npm run bi",
+    "name": "firebase-todo",
+    "version": "0.0.0",
+    "scripts": {
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build",
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview --port 4173"
+    },
+    "dependencies": {
+        "bulma": "^0.9.4",
+        "firebase": "^9.9.3",
+        "gh-pages": "^4.0.0",
+        "vue": "^3.2.37"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-vue": "^3.0.1",
+        "vite": "^3.0.4"
+    }
 }
