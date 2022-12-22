@@ -30,6 +30,10 @@
                 <div class="columns is-mobile is-vcentered">
                     <div class="column" :class="{ 'has-text-success line-through' : todo.done}">
                         {{todo.content}}
+                        <br>
+                        {{formatDate(todo.date)}}
+
+
                     </div>
                     <div class="column is-5 has-text-right">
                         <button @click="toggleDone(todo.id)"
@@ -84,7 +88,14 @@ onMounted( () => {
 
 }) 
 
-
+const formatDate = (fbDate) => {
+    var date = new Date(fbDate); 
+    var year = date.getFullYear();
+    var month = ("0" + (date.getMonth() + 1)).slice(-2);
+    var day = ("0" + date.getDate()).slice(-2);
+    
+    return (`${year}-${month}-${day}`);
+}
 
 const addToDo = () => {
     
@@ -98,8 +109,9 @@ const addToDo = () => {
     
 }
 const deleteToDo = (id) => {
-
-    deleteDoc(doc(todosCollectionRef, id));
+    if(confirm("Är du säker?")){
+        deleteDoc(doc(todosCollectionRef, id));
+    }
 }
 
 const toggleDone = (id) => {
@@ -120,8 +132,8 @@ const toggleDone = (id) => {
 
 
 .app {
-    max-width: 400px;
-    padding: 20px;
+    max-width: 100%;
+    padding: 10px;
     margin: 0px auto;
 }
 
@@ -129,4 +141,7 @@ const toggleDone = (id) => {
     text-decoration: line-through;
 }
 
+.control {
+    margin: 0 auto;
+}
 </style>
